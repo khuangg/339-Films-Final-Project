@@ -6,42 +6,160 @@ header{
 
 h1{
     text-align: center;
+    font-size: 35px;
+    padding: 15px;
 
 }
 
-.nav_link{
+h2:before{
+    content: '\1F3A5';
+    margin: 10px;
+
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 a{
+    color: black;
+
+}
+
+.nav_items{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav_link{
     justify-content: space-around;
-    border: white 2px dashed;
-    background-color: black;
+    border: black 2px dashed;
+    background-color: white;
     margin: 5px;
     padding: 10px;
     border-radius: 10px;
     font-family: "American Typewriter", Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
 }
 
 
 body{
-    background-color: lightblue;
+    background-color: peachpuff;
+    font-family: "American Typewriter", Arial, Helvetica, sans-serif;
+
 }
 
 nav a:hover, nav a:focus{
     text-decoration: underline;
 }
 
-.main a{
-    position: absolute;
-    top: -40px;
+.nav_items a:nth-child(3):before{
+    content: '\1F3AC';
+    margin-right: 10px;
 }
 
-.main a:focus{
+.skip a{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 6px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    color: black;
+    background-color: white;
+  }
+
+
+.skip a:focus{
     position: absolute;
     top: 20px;
 }
 
 *:focus{
-    border: solid black 2px;
+    border: solid black 1px;
 }
+
   
+img{
+    border: 2px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}
+
+.recording{
+    display: none;
+}
+
+p{
+    padding: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    line-height: 26px;
+}
+
+legend{
+    font-size: 25px;
+    padding: 10px;
+}
+
+label{
+    padding-left: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid grey;
+    margin: 20px;
+}
+
+@media only screen and (min-width: 900px){
+    
+    .nav_items{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+
+    }
+
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 1080px){
+    
+    .nav_items{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: flex-end;
+    }
+
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .recording{
+        display: block;
+        border: none;
+        height: 50px;
+        width: 50px;
+        justify-self: auto;
+    }
+
+
+}

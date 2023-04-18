@@ -6,20 +6,47 @@ header{
 
 h1{
     text-align: center;
+    font-size: 35px;
+    padding-top: 15px;
 
 }
 
-.nav_link{
+h2{
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+h3{
+    text-align: center;
+    padding: 14px;
+    font-size: 15px;
+}
+
+h3 > a{
+    color: black;
+    text-decoration: none;
+}
+
+h4{
+    padding: 10px;
+}
+
+.nav_items{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav_link{
     justify-content: space-around;
-    border: white 2px dashed;
-    background-color: black;
+    border: black 2px dashed;
+    background-color: white;
     margin: 5px;
     padding: 10px;
     border-radius: 10px;
     font-family: "American Typewriter", Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
 }
 
 
@@ -32,18 +59,31 @@ nav a:hover, nav a:focus{
     text-decoration: underline;
 }
 
-.main a{
-    position: absolute;
-    top: -40px;
+.nav_items a:nth-child(1):before{
+    content: '\1F3AC';
+    margin-right: 10px;
 }
 
-.main a:focus{
+.skip a{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 6px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    color: black;
+    background-color: white;
+}
+
+
+.skip a:focus{
     position: absolute;
     top: 20px;
 }
 
 *:focus{
-    border: solid black 2px;
+    border: solid black 1px;
+    margin: none;
 }
   
 img{
@@ -51,41 +91,44 @@ img{
 }
 
 p, li{
+    padding: 10px;
     color: black;
+}
+
+.roll{
+    display: none;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    padding: 5px;
+}
+
+#film-roll{
+    display: none;
 }
 
 /* mobile view in 720px */
 
-h2{
-    font-size: 13px;
-}
-
 .container{
     position: absolute;
-    grid-template-columns: 1fr 3fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-gap: 15px;
     display: grid;
 
 }
 
-.film:nth-child(odd){
+.film{
     grid-column: 2;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: flex-start;
+    flex-direction: column;
+    align-items: center;
     
-}
-
-
-.film:nth-child(even){
-    grid-column: 3;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-
-
 }
 
 
@@ -97,7 +140,7 @@ h2{
 
 }
   
-  .flip-card-inner {
+.flip-card-inner {
     position: relative;
     width: 300px;
     height: 450px;
@@ -105,34 +148,231 @@ h2{
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
+}
   
-  .flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
-  }
+}
   
 
-  .flip-card-front, .flip-card-back {
+.flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
-  }
+}
   
-  .flip-card-front {
+.flip-card-front {
     background-color: #bbb;
     color: black;
-  }
+}
   
-  .flip-card-back {
+.flip-card-back {
     background-color: white;
     color: black;
     transform: rotateY(180deg);
-  }
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
 
+}
 
-.summary:nth-child(odd){
+.summary{
    grid-column: 2;
+   text-align: left;
+   padding: 25px;
+}
+
+
+/* tablet view in min width 900px */
+@media only screen and (min-width: 900px){
+
+    .nav_items{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .heart{
+        display: none;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    h3{
+        font-size: 13px;
+        color: black;
+    }
+    
+    .container{
+        position: absolute;
+        grid-template-columns: 1fr 3fr 3fr 1fr;
+        grid-gap: 15px;
+        display: grid;
+    
+    }
+    
+    .film:nth-child(odd){
+        grid-column: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        
+    }
+    
+    
+    .film:nth-child(even){
+        grid-column: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .roll{
+        grid-column: 3;
+        grid-row: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .roll > img{
+        border: none;
+    }
+}
+
+
+
+@media only screen and (min-width: 1080px){
+    
+    .nav_items{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: flex-end;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    h3{
+        font-size: 13px;
+        padding: 2px;
+    }
+
+    header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .container{
+        position: absolute;
+        grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+        grid-gap: 15px;
+        display: grid;
+    
+    }
+    
+    .film:nth-child(1){
+        grid-column: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        
+    }
+    
+    
+    .film:nth-child(2){
+        grid-column: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .film:nth-child(3){
+        grid-column: 4;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .film:nth-child(4){
+        grid-column: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .film:nth-child(5){
+        grid-column: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .film:nth-child(6){
+        grid-column: 4;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .film:nth-child(7){
+        grid-column: 2;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .film:nth-child(8){
+        grid-column: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .film:nth-child(9){
+        grid-column: 4;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    
+    }
+
+    .roll{
+        display: none;
+    }
+
+    #film-roll{
+        display: flex;
+        border: none;
+        
+    }
+
+   }
+
+@media screen and (prefers-reduced-motion: reduce){
+    .flip-card-inner {
+        position: relative;
+        width: 300px;
+        height: 450px;
+        text-align: center;
+        transition: transform 0s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
 }
